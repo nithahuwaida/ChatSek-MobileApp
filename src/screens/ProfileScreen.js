@@ -88,7 +88,7 @@ export default class ProfileScreen extends React.Component{
                             Fire.shared.signOut();
                         }}
                     >
-                        <Text style={{color:"#C70039", fontWeight: "500", fontSize:15}}>Logout</Text>
+                        <Text style={{color:"#FFF", fontWeight: "500", fontSize:15}}>Logout</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     btnUser:{
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#5f9ea0",
+        backgroundColor: "#1B4F72",
         marginHorizontal: 50,
         borderRadius: 4,
         height: 32,
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     },
     button: {
         marginHorizontal: 100,
-        backgroundColor: "#D0D3D4",
+        backgroundColor: "#B03A2E",
         borderRadius: 4,
         height: 32,
         alignItems: "center",

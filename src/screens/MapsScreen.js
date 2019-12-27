@@ -2,9 +2,10 @@ import React from 'react';
 import * as firebase from 'firebase';
 import {View, Text, StyleSheet, PermissionsAndroid, ToastAndroid,
         Platform, Dimensions, TouchableOpacity, Image} from 'react-native';
-import MapView, { Marker , Callout} from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
 import AsyncStorage from '@react-native-community/async-storage';
 import Geolocation from 'react-native-geolocation-service';
+import markerLocation from '../../images/markerLoc.png';
 
 const {width, height} = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
@@ -105,10 +106,10 @@ export default class MapsScreen extends React.Component{
         return (
             <View style={styles.container}>
                 <MapView style={styles.map}
-                    // showsMyLocationButton={true}
-                    // showsIndoorLevelPicker={true}
-                    showsUserLocation={true}
-                    zoomControlEnabled={true}
+                    showsMyLocationButton={true}
+                    showsIndoorLevelPicker={true}
+                    // showsUserLocation={true}
+                    // zoomControlEnabled={true}
                     // showsCompass={true}
                     showsTraffic={true}
                     region={this.state.mapRegion}
@@ -130,16 +131,11 @@ export default class MapsScreen extends React.Component{
                                     latitude: item.latitude || 0,
                                     longitude: item.longitude || 0,
                                 }}
-                                // onCalloutPress={()=>{
-                                //     this.props.navigation.navigate('Chat',{
-                                //         item
-                                //     })
-                                // }}
                             >
                             <View>
                                 <Image
                                     source={{uri: item.photo}}
-                                    style={{width: 40, height: 40, borderRadius: 50}}
+                                    style={styles.ImagePin}
                                 />
                                 <Text>{item.name}</Text>
                             </View>
@@ -147,16 +143,9 @@ export default class MapsScreen extends React.Component{
                         )
                     })}
                 </MapView>
-                {/* <TouchableOpacity 
-                    style={{
-                        width: 65, 
-                        height: 65, 
-                        borderRadius:100, 
-                        position: 'absolute', 
-                        right: "10%", 
-                        top: "88%"}}
-                    onPress={() => this.getLocation()}
-                /> */}
+                <TouchableOpacity style={styles.markerLoc}  onPress={() => this.getLocation()}>
+                    <Image source={markerLocation} style={styles.imageMarker}/>
+                </TouchableOpacity>
             </View>
         );
     }
@@ -178,5 +167,25 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         bottom: 0
+    },
+    ImagePin:{
+        width: 40, 
+        height: 40, 
+        borderRadius: 50
+    },
+    markerLoc:{
+        width: 50, 
+        height: 50, 
+        borderRadius:100,
+        backgroundColor: "#7FB3D5",
+        position: 'absolute', 
+        right: "6%", 
+        top: "88%"
+    },
+    imageMarker:{
+        width: 30,
+        height: 30,
+        borderRadius:100,
+        margin:10
     }
 })

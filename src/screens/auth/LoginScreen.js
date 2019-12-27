@@ -1,9 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity,
          Image,KeyboardAvoidingView, PermissionsAndroid,
-        ToastAndroid, Platform} from 'react-native';
+        ToastAndroid, Platform, ImageBackground} from 'react-native';
 import * as firebase from 'firebase';
-import logoChat from '../../../images/logochatsek.png';
+import logoChat from '../../../images/chatseklogo.png';
+import imageBg from '../../../images/bgImage.png';
 import Geolocation from 'react-native-geolocation-service';
 import AsyncStorage from '@react-native-community/async-storage';
 
@@ -122,58 +123,64 @@ export default class LoginScreen extends React.Component{
     render(){
         return(
             <View style={styles.container}>
-                <View style={{marginTop: 54, alignItems: "center"}}>
-                    <View style={styles.avatarContainer}>
-                        <Image style={styles.avatar} source={logoChat}/>
-                    </View>
-                    <Text style={styles.greeting}>
-                        {`W E L C O M E\n`}
-                    </Text>
-                </View>
-                <KeyboardAvoidingView>
-                    <View style={styles.form}>
-                        <View>
-                            <Text style={styles.inputTitle}>Email Address</Text>
-                            <TextInput 
-                            style={styles.input}
-                            autoCapitalize="none"
-                            onChangeText={email => this.setState({ email })}
-                            value={this.state.email}
-                            />
+                <ImageBackground source={imageBg} style={styles.backgroundContainer}>
+                    <View style={{marginTop: 54, alignItems: "center"}}>
+                        <View style={styles.avatarContainer}>
+                            <Image style={styles.avatar} source={logoChat}/>
                         </View>
-
-                        <View style={{marginTop: 12}}>
-                            <Text style={styles.inputTitle}>Password</Text>
-                            <TextInput 
-                            secureTextEntry
-                            style={styles.input}
-                            autoCapitalize="none"
-                            onChangeText={password => this.setState({ password })}
-                            value={this.state.password}
-                            />
-                        </View>
+                        <Text style={styles.greeting}>
+                            {`W E L C O M E\n`}
+                        </Text>
                     </View>
-                </KeyboardAvoidingView>
+                    <KeyboardAvoidingView>
+                        <View style={styles.form}>
+                            <View>
+                                <Text style={styles.inputTitle}>Email Address</Text>
+                                <TextInput 
+                                style={styles.input}
+                                autoCapitalize="none"
+                                onChangeText={email => this.setState({ email })}
+                                value={this.state.email}
+                                />
+                            </View>
 
-                <TouchableOpacity style={styles.button} onPress={this.handleLogin}>
-                    <Text style={{color:"#FFF", fontWeight: "500"}}>Login</Text>
-                </TouchableOpacity>
+                            <View style={{marginTop: 12}}>
+                                <Text style={styles.inputTitle}>Password</Text>
+                                <TextInput 
+                                secureTextEntry
+                                style={styles.input}
+                                autoCapitalize="none"
+                                onChangeText={password => this.setState({ password })}
+                                value={this.state.password}
+                                />
+                            </View>
+                        </View>
+                    </KeyboardAvoidingView>
 
-                <TouchableOpacity
-                style={{alignSelf: "center", marginTop:32}}
-                onPress={() => this.props.navigation.navigate("Register")}>
-                    <Text style={{color : "#414959", fontSize: 13}}>
-                    Don't have an account ChatSek? <Text style={{fontWeight:"500", color: "#5f9ea0" }}>  Register</Text>
-                    </Text>
-                </TouchableOpacity>
-            </View>            
+                    <TouchableOpacity style={styles.button} onPress={this.handleLogin}>
+                        <Text style={{color:"#FFF", fontWeight: "500"}}>Login</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                    style={{alignSelf: "center", marginTop:32}}
+                    onPress={() => this.props.navigation.navigate("Register")}>
+                        <Text style={{color : "#414959", fontSize: 13}}>
+                        Don't have an account ChatSek? <Text style={{fontWeight:"500", color: "#5f9ea0" }}>  Register</Text>
+                        </Text>
+                    </TouchableOpacity>
+                </ImageBackground>
+            </View>
         );
     }
 }
 
 const styles= StyleSheet.create({
     container:{
-        flex: 1,
+        flex: 1
+    },
+    backgroundContainer:{
+        width: null,
+        height: null,
     },
     avatarContainer:{
         shadowColor: "#151734",
@@ -186,10 +193,10 @@ const styles= StyleSheet.create({
         marginLeft:20
     },
     greeting:{
-        marginTop: 22,
+        marginTop: 35,
         fontSize: 18,
-        fontWeight: "400",
-        textAlign: "center"
+        fontWeight: "600",
+        textAlign: "center",
     },
     form:{
         marginBottom:40,
@@ -209,7 +216,7 @@ const styles= StyleSheet.create({
     },
     button: {
         marginHorizontal: 30,
-        backgroundColor: "#5f9ea0",
+        backgroundColor: "#1B4F72",
         borderRadius: 4,
         height: 52,
         alignItems: "center",
