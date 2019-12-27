@@ -11,7 +11,7 @@ const AppTabNavigator = createBottomTabNavigator(
       Home: {
           screen: HomeScreen,
           navigationOptions: {
-              title: "Transaction",
+              title: "Home",
               tabBarIcon: ({ tintColor }) => <Ionicons name="md-home" size={24} color={tintColor} />
           }
       },
@@ -23,20 +23,7 @@ const AppTabNavigator = createBottomTabNavigator(
       },
       Maps: {
           screen:MapsScreen,
-          navigationOptions: {
-              tabBarIcon: ({ tintColor }) => (
-                  <Ionicons
-                      name="md-pin"
-                      size={30}
-                      color="#E9446A"
-                      style={{
-                          shadowColor: "#E9446A",
-                          shadowOffset: { width: 0, height: 10 },
-                          shadowRadius: 10,
-                          shadowOpacity: 0.3
-                      }}
-                  />
-              )
+          navigationOptions: {tabBarIcon: ({ tintColor }) => <Ionicons name="md-pin" size={24} color={tintColor}/>
           }
       },
       Profile: {
@@ -48,9 +35,9 @@ const AppTabNavigator = createBottomTabNavigator(
   },
   {
       tabBarOptions: {
-          activeTintColor: "#161F3D",
-          inactiveTintColor: "#B8BBC4",
-          showLabel: false
+          activeTintColor: "#1A5276",
+          inactiveTintColor: "#7FB3D5",
+          showLabel: true
       }
   }
 );

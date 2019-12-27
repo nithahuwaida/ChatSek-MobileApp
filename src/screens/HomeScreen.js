@@ -5,10 +5,6 @@ import SafeAreaView from 'react-native-safe-area-view';
 
 
 export default class HomeScreen extends React.Component{
-    static navigationOptions ={
-        title: 'Chats'
-    }
-
     state ={
         users: []
     }
@@ -23,7 +19,6 @@ export default class HomeScreen extends React.Component{
             person.uid = val.key;
             if(person.uid === User.uid){
                 User.name = person.name
-                // console.log(User.name)
             }else{
                 this.setState((prevState) =>{
                     return {
