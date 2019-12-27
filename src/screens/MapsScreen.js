@@ -105,12 +105,12 @@ export default class MapsScreen extends React.Component{
         return (
             <View style={styles.container}>
                 <MapView style={styles.map}
-                    showsMyLocationButton={true}
-                    showsIndoorLevelPicker={true}
+                    // showsMyLocationButton={true}
+                    // showsIndoorLevelPicker={true}
                     showsUserLocation={true}
                     zoomControlEnabled={true}
-                    showsCompass={true}
-                    showsTraffic={false}
+                    // showsCompass={true}
+                    showsTraffic={true}
                     region={this.state.mapRegion}
                     initialRegion={{
                     latitude: -7.755322,
@@ -122,7 +122,7 @@ export default class MapsScreen extends React.Component{
                     {this.state.userList.map(item => {
                         return (
                             <Marker
-                                key={item.id}
+                                key={item.name}
                                 title={item.name}
                                 description={item.status}
                                 draggable
@@ -147,11 +147,16 @@ export default class MapsScreen extends React.Component{
                         )
                     })}
                 </MapView>
-                <TouchableOpacity 
-                    style={{width: 65, height: 65, borderRadius:100, position: 'absolute', right: "10%", top: "88%"}}
+                {/* <TouchableOpacity 
+                    style={{
+                        width: 65, 
+                        height: 65, 
+                        borderRadius:100, 
+                        position: 'absolute', 
+                        right: "10%", 
+                        top: "88%"}}
                     onPress={() => this.getLocation()}
-                >
-            </TouchableOpacity>
+                /> */}
             </View>
         );
     }

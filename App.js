@@ -15,6 +15,8 @@ const AuthStack = createStackNavigator({
 const AppStack = createStackNavigator({
   AppTabNavigator,
   Screen : AppNavigator,
+},{
+  headerMode: 'none',
 })
 
 export default createAppContainer(

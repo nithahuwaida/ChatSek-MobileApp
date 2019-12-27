@@ -11,7 +11,6 @@ const AppTabNavigator = createBottomTabNavigator(
       Home: {
           screen: HomeScreen,
           navigationOptions: {
-              title: "Home",
               tabBarIcon: ({ tintColor }) => <Ionicons name="md-home" size={24} color={tintColor} />
           }
       },
@@ -37,7 +36,11 @@ const AppTabNavigator = createBottomTabNavigator(
       tabBarOptions: {
           activeTintColor: "#1A5276",
           inactiveTintColor: "#7FB3D5",
-          showLabel: true
+          showLabel: true,
+          labelStyle: {
+            fontWeight:'bold',
+            fontSize: 12
+          },
       }
   }
 );
