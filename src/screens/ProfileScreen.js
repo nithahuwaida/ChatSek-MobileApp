@@ -1,6 +1,7 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, TextInput, Button, TouchableOpacity} from 'react-native';
-import logoPerson from '../images/person.png';
+import {View, Text, StyleSheet, Image, TextInput,
+         Button, TouchableOpacity, KeyboardAvoidingView} from 'react-native';
+import logoPerson from '../../images/person.png';
 import * as firebase from "firebase";
 import Fire from './helpers/Fire';
 // import { User } from './helpers/User';
@@ -52,33 +53,35 @@ export default class ProfileScreen extends React.Component{
                     <Text style={styles.name}>{this.state.displayName}</Text>
                 </View>
                 <View>
-                    <View style={styles.form}>
-                        <View>
-                            <Text style={styles.inputTitle}>Nama Lengkap</Text>
-                            <TextInput 
-                            style={styles.input}
-                            autoCapitalize="none"
-                            value ={this.state.displayName}
-                            // onChangeText = {this.handleChange('name')}
-                            />
-                        </View>
+                    <KeyboardAvoidingView>
+                        <View style={styles.form}>
+                            <View>
+                                <Text style={styles.inputTitle}>Nama Lengkap</Text>
+                                <TextInput 
+                                style={styles.input}
+                                autoCapitalize="none"
+                                value ={this.state.displayName}
+                                // onChangeText = {this.handleChange('name')}
+                                />
+                            </View>
 
-                        <View style={{marginTop: 32}}>
-                            <Text style={styles.inputTitle}>Email Address</Text>
-                            <TextInput 
-                            style={styles.input}
-                            autoCapitalize="none"
-                            value ={this.state.email}
-                            // onChangeText = {this.handleChange('email')}
-                            />
-                        </View>
-                        <TouchableOpacity 
-                            style={styles.btnUser} 
-                            onPress={this.changeProfil}
-                        >
-                            <Text style={{color:"#FFF", fontWeight: "500", fontSize:15}}> Change Profile</Text>
-                        </TouchableOpacity>
-                    </View> 
+                            <View style={{marginTop: 32}}>
+                                <Text style={styles.inputTitle}>Email Address</Text>
+                                <TextInput 
+                                style={styles.input}
+                                autoCapitalize="none"
+                                value ={this.state.email}
+                                // onChangeText = {this.handleChange('email')}
+                                />
+                            </View>
+                            <TouchableOpacity 
+                                style={styles.btnUser} 
+                                onPress={this.changeProfil}
+                            >
+                                <Text style={{color:"#FFF", fontWeight: "500", fontSize:15}}> Change Profile</Text>
+                            </TouchableOpacity>
+                        </View> 
+                    </KeyboardAvoidingView>
                     <TouchableOpacity 
                         style={styles.button} 
                         onPress={() => {

@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Text, TextInput, StyleSheet, Dimensions, TouchableOpacity, FlatList} from 'react-native';
+import {View, Text, TextInput, StyleSheet, Dimensions, TouchableOpacity, 
+        FlatList, KeyboardAvoidingView} from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
 import * as firebase from "firebase";
 
@@ -101,17 +102,19 @@ export default class ChatScreen extends React.Component{
                     renderItem={this.renderRow}
                     keyExtractor={(item, index) => index.toString()}
                 />
-                <View style={{flexDirection:'row', alignItems:'center', marginHorizontal: 5}}>
-                    <TextInput
-                        style ={styles.input}
-                        value ={this.state.textMessage}
-                        placeholder = "Type message...."
-                        onChangeText = {this.handleChange('textMessage')}
-                    />
-                    <TouchableOpacity onPress={this.sendMessage} style={{paddingBottom:10,marginLeft:5}}>
-                        <Text style={styles.btnText}>Send</Text>
-                    </TouchableOpacity>
-                </View>
+                <KeyboardAvoidingView>
+                    <View style={{flexDirection:'row', alignItems:'center', marginHorizontal: 5}}>
+                        <TextInput
+                            style ={styles.input}
+                            value ={this.state.textMessage}
+                            placeholder = "Type message...."
+                            onChangeText = {this.handleChange('textMessage')}
+                        />
+                        <TouchableOpacity onPress={this.sendMessage} style={{paddingBottom:10,marginLeft:5}}>
+                            <Text style={styles.btnText}>Send</Text>
+                        </TouchableOpacity>
+                    </View>
+                </KeyboardAvoidingView>
             </SafeAreaView>
         )
     }

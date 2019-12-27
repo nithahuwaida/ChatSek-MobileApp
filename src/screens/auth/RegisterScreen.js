@@ -1,7 +1,8 @@
 import React from "react";
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image} from "react-native";
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, 
+        Image, KeyboardAvoidingView} from "react-native";
 import Fire from '../helpers/Fire';
-import logoChat from '../../images/chatsek.png';
+import logoChat from '../../../images/logochatsek.png';
 
 
 export default class RegisterScreen extends React.Component {
@@ -32,38 +33,40 @@ export default class RegisterScreen extends React.Component {
                     <Text style={styles.greeting}>{`Hello!\nRegister to get started.`}</Text>
                 </View>
 
-                <View style={styles.form}>
-                    <View>
-                        <Text style={styles.inputTitle}>Full Name</Text>
-                        <TextInput
-                            style={styles.input}
-                            autoCapitalize="none"
-                            onChangeText={name => this.setState({ user: { ...this.state.user, name } })}
-                            value={this.state.user.name}
-                        ></TextInput>
-                    </View>
+                <KeyboardAvoidingView>
+                    <View style={styles.form}>
+                        <View>
+                            <Text style={styles.inputTitle}>Full Name</Text>
+                            <TextInput
+                                style={styles.input}
+                                autoCapitalize="none"
+                                onChangeText={name => this.setState({ user: { ...this.state.user, name } })}
+                                value={this.state.user.name}
+                            ></TextInput>
+                        </View>
 
-                    <View style={{ marginTop: 20 }}>
-                        <Text style={styles.inputTitle}>Email Address</Text>
-                        <TextInput
-                            style={styles.input}
-                            autoCapitalize="none"
-                            onChangeText={email => this.setState({ user: { ...this.state.user, email } })}
-                            value={this.state.user.email}
-                        ></TextInput>
-                    </View>
+                        <View style={{ marginTop: 20 }}>
+                            <Text style={styles.inputTitle}>Email Address</Text>
+                            <TextInput
+                                style={styles.input}
+                                autoCapitalize="none"
+                                onChangeText={email => this.setState({ user: { ...this.state.user, email } })}
+                                value={this.state.user.email}
+                            ></TextInput>
+                        </View>
 
-                    <View style={{ marginTop: 20 }}>
-                        <Text style={styles.inputTitle}>Password</Text>
-                        <TextInput
-                            style={styles.input}
-                            secureTextEntry
-                            autoCapitalize="none"
-                            onChangeText={password => this.setState({ user: { ...this.state.user, password } })}
-                            value={this.state.user.password}
-                        ></TextInput>
+                        <View style={{ marginTop: 20 }}>
+                            <Text style={styles.inputTitle}>Password</Text>
+                            <TextInput
+                                style={styles.input}
+                                secureTextEntry
+                                autoCapitalize="none"
+                                onChangeText={password => this.setState({ user: { ...this.state.user, password } })}
+                                value={this.state.user.password}
+                            ></TextInput>
+                        </View>
                     </View>
-                </View>
+                </KeyboardAvoidingView>
 
                 <TouchableOpacity style={styles.button} onPress={this.handleRegister}>
                     <Text style={{ color: "#FFF", fontWeight: "500" }}>Register</Text>
@@ -96,8 +99,9 @@ const styles = StyleSheet.create({
         shadowOpacity : 0.4
     },
     avatar:{
-        width: 136,
+        width: 160,
         height: 136,
+        marginLeft:20
     },
     form: {
         marginBottom: 38,

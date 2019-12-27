@@ -1,17 +1,18 @@
 import React from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert, Image} from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity,
+         Alert, Image,KeyboardAvoidingView} from 'react-native';
 import * as firebase from 'firebase';
-import logoChat from '../../images/chatsek.png';
+import logoChat from '../../../images/logochatsek.png';
 
 export default class LoginScreen extends React.Component{
     static navigationOptions ={
         header: null,
     }
 
-    state ={
+    state = {
         email: "",
         password: "",
-        errorMessage: null
+        errorMessage: null,
     };
 
     handleLogin = async () => {
@@ -34,29 +35,30 @@ export default class LoginScreen extends React.Component{
                         {`W E L C O M E\n`}
                     </Text>
                 </View>
+                <KeyboardAvoidingView>
+                    <View style={styles.form}>
+                        <View>
+                            <Text style={styles.inputTitle}>Email Address</Text>
+                            <TextInput 
+                            style={styles.input}
+                            autoCapitalize="none"
+                            onChangeText={email => this.setState({ email })}
+                            value={this.state.email}
+                            />
+                        </View>
 
-                <View style={styles.form}>
-                    <View>
-                        <Text style={styles.inputTitle}>Email Address</Text>
-                        <TextInput 
-                        style={styles.input}
-                        autoCapitalize="none"
-                        onChangeText={email => this.setState({ email })}
-                        value={this.state.email}
-                        />
+                        <View style={{marginTop: 12}}>
+                            <Text style={styles.inputTitle}>Password</Text>
+                            <TextInput 
+                            secureTextEntry
+                            style={styles.input}
+                            autoCapitalize="none"
+                            onChangeText={password => this.setState({ password })}
+                            value={this.state.password}
+                            />
+                        </View>
                     </View>
-
-                    <View style={{marginTop: 12}}>
-                        <Text style={styles.inputTitle}>Password</Text>
-                        <TextInput 
-                        secureTextEntry
-                        style={styles.input}
-                        autoCapitalize="none"
-                        onChangeText={password => this.setState({ password })}
-                        value={this.state.password}
-                        />
-                    </View>
-                </View>
+                </KeyboardAvoidingView>
 
                 <TouchableOpacity style={styles.button} onPress={this.handleLogin}>
                     <Text style={{color:"#FFF", fontWeight: "500"}}>Login</Text>
@@ -84,8 +86,9 @@ const styles= StyleSheet.create({
         shadowOpacity : 0.4
     },
     avatar:{
-        width: 136,
+        width: 160,
         height: 136,
+        marginLeft:20
     },
     greeting:{
         marginTop: 22,
@@ -107,7 +110,7 @@ const styles= StyleSheet.create({
         borderBottomWidth: StyleSheet.hairlineWidth,
         height: 40,
         fontSize: 15,
-        color: "#161F3D"
+        color: "#161F3D",
     },
     button: {
         marginHorizontal: 30,
