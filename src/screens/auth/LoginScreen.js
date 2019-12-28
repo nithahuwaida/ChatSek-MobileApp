@@ -106,7 +106,6 @@ export default class LoginScreen extends React.Component{
             ToastAndroid.show('Login success', ToastAndroid.LONG);
             await AsyncStorage.setItem('userid', response.user.uid);
             await AsyncStorage.setItem('user', JSON.stringify(response.user));
-
             this.props.navigation.navigate('App')
         }).catch(error => {
             console.warn(error);
