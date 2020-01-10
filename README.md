@@ -38,8 +38,8 @@ ChatSek is a mobile application that features realtime chat and tracking via map
 
 ## Showcase
 <p align="center">
-  <img width="250" height="250" src="https://user-images.githubusercontent.com/29118699/72130198-54010a80-33ab-11ea-8437-cfd07daa8391.jpg">
-  <img width="250" height="250" src="https://user-images.githubusercontent.com/29118699/72130220-62e7bd00-33ab-11ea-91b3-e4c99d2fd445.jpg">
-  <img width="250" height="250" src="https://user-images.githubusercontent.com/29118699/72130235-7135d900-33ab-11ea-8119-6f6fe766c02f.jpg">
-  <img width="250" height="250" src="https://user-images.githubusercontent.com/29118699/72130260-890d5d00-33ab-11ea-8f3b-11cfff7e4ddb.jpg">
+  <img width="200" height="300" src="https://user-images.githubusercontent.com/29118699/72130198-54010a80-33ab-11ea-8437-cfd07daa8391.jpg">
+  <img width="200" height="300" src="https://user-images.githubusercontent.com/29118699/72130220-62e7bd00-33ab-11ea-91b3-e4c99d2fd445.jpg">
+  <img width="200" height="300" src="https://user-images.githubusercontent.com/29118699/72130235-7135d900-33ab-11ea-8119-6f6fe766c02f.jpg">
+  <img width="200" height="300" src="https://user-images.githubusercontent.com/29118699/72130260-890d5d00-33ab-11ea-8f3b-11cfff7e4ddb.jpg">
 </p>
